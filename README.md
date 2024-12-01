@@ -1,3 +1,9 @@
+<p align="center">
+  <img alt="constat Logo" src="public/constat-logo.png" height="128" width="128">
+</p>
+
+# **constat**
+
 ## What is constat?
 constat is a simple status page to list the running Docker containers on your local machine.
 
