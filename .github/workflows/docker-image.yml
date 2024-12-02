@@ -10,12 +10,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - name: Build the Docker image
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+    - name: Build and push
       uses: docker/build-push-action@v6
-    - run: docker build . --file Dockerfile --tag ghcr.io/IncidentHub-Cloud/constat:1.0.${{ github.run_number }} .
-    - run: docker push ghcr.io/IncidentHub-Cloud/constat:1.0.${{ github.run_number }}
-    - run: docker tag ghcr.io/IncidentHub-Cloud/constat:1.0.${{ github.run_number }} ghcr.io/IncidentHub-Cloud/constat:latest
-    - run: docker push ghcr.io/IncidentHub-Cloud/constat:latest
-    env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        push: true
+        tags: ghcr.io/IncidentHub-Cloud/constat:1.0.${{ github.run_number }},push ghcr.io/IncidentHub-Cloud/constat:latest
+
