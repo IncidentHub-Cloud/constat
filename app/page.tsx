@@ -1,6 +1,6 @@
 'use strict';
 
-import { Docker } from "node-docker-api";
+export const dynamic = 'force-dynamic';
 
 import { Card, CardTitle } from "@/components/ui/card";
 import {
@@ -13,8 +13,8 @@ import {
 } from "@/components/ui/table";
 
 import LogViewer from "@/components/logviewer";
+import { getContainers } from "@/lib/docker-utils";
 import Image from "next/image";
-import { Container } from "node-docker-api/lib/container";
 
 interface ContainerData {
   Id: string;
@@ -23,30 +23,27 @@ interface ContainerData {
   ImageID: string;
   Command: string;
   Created: number,
-  Ports: [[Object]],
+  Ports: [[object]],
   Labels: {
     string: string;
   },
   State: string;
   Status: string;
   HostConfig: { string: string; },
-  NetworkSettings: { Networks: [Object] },
-  Mounts: [[Object], [Object]]
+  NetworkSettings: { Networks: [object] },
+  Mounts: [[object], [object]]
 
 }
 
 const Home = async () => {
 
-  const docker = new Docker({ socketPath: '/var/run/docker.sock' });
-
-  const list = await docker.container.list() as Container[];
-
+  const list = await getContainers();
   // console.log(list);
-  list.forEach((container) => {
-    const data: ContainerData = container.data as ContainerData;
-    console.log(data.Names);
+  // list.forEach((container) => {
+  //   const data: ContainerData = container.data as ContainerData;
+  //   console.log(data.Names);
 
-  })
+  // })
 
   return (
     <div className="align-middle m-4">
