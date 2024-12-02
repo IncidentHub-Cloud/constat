@@ -16,5 +16,5 @@ jobs:
       uses: docker/build-push-action@v6
       with:
         push: true
-        tags: ghcr.io/IncidentHub-Cloud/constat:1.0.${{ github.run_number }},push ghcr.io/IncidentHub-Cloud/constat:latest
+        tags: ghcr.io/incidenthub-cloud/constat:1.0.${{ github.run_number }},push ghcr.io/incidenthub-cloud/constat:latest
 
