@@ -1,4 +1,17 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<p align="center">
+  <img alt="constat Logo" src="public/constat-logo.png" height="128" width="128">
+</p>
+
+# **constat**
+
+## What is constat?
+constat is a simple status page to list the running Docker containers on your local machine.
+
+## Screenshots
+
+![Main page](screenshots/main.png)
+
+![Log viewer](screenshots/logs.png)
 
 ## Getting Started
 
@@ -14,7 +27,7 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. The port might be different if you have another Next project running on 3000.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
