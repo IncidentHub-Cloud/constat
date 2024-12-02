@@ -39,7 +39,7 @@ constat can itself run in a container.
 It needs `/var/run/docker.sock` to be mounted inside to be able to talk to the Docker daemon on the machine where its running.
 
 ```shell
-docker run -p9001:3000 -v /var/run/docker.sock:/var/run/docker.sock <image>
+docker run -p9001:3000 -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/incidenthub-cloud/constat:latest
 ```
 
 Open [http://localhost:9001](http://localhost:3000) with your browser to see the result.
