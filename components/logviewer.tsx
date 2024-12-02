@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/sheet";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { getContainerLogs } from "@/lib/docker-logs";
+import { getContainerLogs } from "@/lib/docker-utils";
 import { useEffect, useState } from "react";
 
 interface LogViewerProps {
@@ -36,7 +36,7 @@ const LogViewer = (props: LogViewerProps) => {
 
         const intervalId = setInterval(updateMessages, 2000);
         return () => clearInterval(intervalId);
-    }, []);
+    }, [containerId]);
 
     return (
         <Sheet>
@@ -48,6 +48,7 @@ const LogViewer = (props: LogViewerProps) => {
                     <SheetTitle>Logs for {containerId} - refreshing every 2 seconds</SheetTitle>
                     <ScrollArea className="h-[800px] w-[1150px] rounded-md border p-4">
                         {messages.split("\n").map(message => {
+                            // eslint-disable-next-line react/jsx-key
                             return <div>{message}</div>
                         })}
                     </ScrollArea>
