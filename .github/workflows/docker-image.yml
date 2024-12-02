@@ -12,7 +12,10 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
+      uses: docker/build-push-action@v6
     - run: docker build . --file Dockerfile --tag ghcr.io/IncidentHub-Cloud/constat:1.0.${{ github.run_number }} .
     - run: docker push ghcr.io/IncidentHub-Cloud/constat:1.0.${{ github.run_number }}
     - run: docker tag ghcr.io/IncidentHub-Cloud/constat:1.0.${{ github.run_number }} ghcr.io/IncidentHub-Cloud/constat:latest
     - run: docker push ghcr.io/IncidentHub-Cloud/constat:latest
+    env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
