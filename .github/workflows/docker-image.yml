@@ -17,4 +17,6 @@ jobs:
       with:
         push: true
         tags: ghcr.io/incidenthub-cloud/constat:1.0.${{ github.run_number }},ghcr.io/incidenthub-cloud/constat:latest
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
