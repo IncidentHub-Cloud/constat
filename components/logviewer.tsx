@@ -47,9 +47,8 @@ const LogViewer = (props: LogViewerProps) => {
                 <SheetHeader>
                     <SheetTitle>Logs for {containerId} - refreshing every 2 seconds</SheetTitle>
                     <ScrollArea className="h-[800px] w-[1150px] rounded-md border p-4">
-                        {messages.split("\n").map(message => {
-                            // eslint-disable-next-line react/jsx-key
-                            return <div>{message}</div>
+                        {messages.split("\n").map((message, index) => {
+                            return <div key={`${index}-${message}`}>{message}</div>
                         })}
                     </ScrollArea>
                 </SheetHeader>
